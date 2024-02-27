@@ -14,7 +14,7 @@ const Index = (): JSX.Element => {
         axios
             .get("https://study-tracker-backend-vert.vercel.app/topic", {
                 headers: {
-                    creator: "sumana",
+                    creator: localStorage.getItem("creator"),
                 },
             })
             .then((res) => {
