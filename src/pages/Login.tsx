@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-const Login = () => {
+const Login = (): JSX.Element => {
     const navigate = useNavigate();
     const login = () => {
         let creator: string | null = prompt("Enter your name");

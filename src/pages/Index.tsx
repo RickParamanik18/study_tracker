@@ -6,7 +6,7 @@ type Topic = {
     name: string;
     date: string;
 };
-const Index = () => {
+const Index = (): JSX.Element => {
     const navigate = useNavigate();
     const [topics, setTopics] = useState<Topic[]>([]);
     const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -22,7 +22,10 @@ const Index = () => {
             })
             .catch((err) => console.error(err));
     }, [topics]);
-    return localStorage.getItem("creator") ? (
+    useEffect(() => {
+        !Boolean(localStorage.getItem("creator")) && navigate("/login");
+    }, []);
+    return (
         <>
             <button
                 style={{
@@ -84,8 +87,6 @@ const Index = () => {
                 <Modal isVisible={isVisible} setIsVisible={setIsVisible} />
             </div>
         </>
-    ) : (
-        navigate("/login")
     );
 };
 
