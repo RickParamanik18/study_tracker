@@ -15,7 +15,7 @@ const Modal = ({ isVisible = false, setIsVisible }: any) => {
             .post("https://study-tracker-backend-vert.vercel.app/topic", {
                 name: val,
                 date: currentDate,
-                creator: "sumana",
+                creator: localStorage.getItem("creator"),
             })
             .then(function (response) {
                 alert(
